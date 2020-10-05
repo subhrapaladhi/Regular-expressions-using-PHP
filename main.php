@@ -11,12 +11,21 @@
     $textFileData = fread($dataFile, $fileSize);
     
     echo '<p>'.$textFileData.'</p>';
+    
+    $words = explode(" ", $textFileData);
+
+    $IPregx = "/^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/";
+
+    echo "<ul>";
+    foreach($words as $word){
+        if(preg_match($IPregx, $word) == 1){
+            echo "<li>".$word."</li>";
+        }
+    }
+    echo "</ul>";
 
     fclose($dataFile);
 
-    $IPregx = "/^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/";
-    $components = preg_split($IPregx, $textFileData, -1, PREG_SPLIT_OFFSET_CAPTURE);
-    print_r($components);
 ?>
 
 </body>
