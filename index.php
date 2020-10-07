@@ -1,3 +1,4 @@
+<html>
 <?php
    if(isset($_FILES['image'])){
       $errors= array();
@@ -18,16 +19,17 @@
       
       if(empty($errors)==true){
          move_uploaded_file($file_tmp,$dest);
-         echo "Success";
+         echo "<h3>File uploaded successfully<h3>";
+         echo '<a href="./upload.php">Find the ip addresses and emails in the text file</a>';
       }
-   }
-?>
-<html>
-   <body>
+
+   } else {
+      echo '
       <form action="" method="POST" enctype="multipart/form-data">
          <input type="file" name="image" />
          <input type="submit"/>
-      </form>
-      
-   </body>
+      </form>';
+   }
+?>
+
 </html>
