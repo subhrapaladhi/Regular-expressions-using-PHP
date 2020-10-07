@@ -6,12 +6,10 @@
 <body>
 
 <?php
-    $dataFile = fopen("data.txt","r") or die("unable to open file!");
-    $fileSize = filesize("data.txt");
+    $dataFile = fopen("./TextFile/data.txt","r") or die("unable to open file!");
+    $fileSize = filesize("./TextFile/data.txt");
     $textFileData = fread($dataFile, $fileSize);
-    
-    echo '<p>'.$textFileData.'</p>';
-    
+       
     $words = explode(" ", $textFileData);
 
     $IPregx = "/^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/";

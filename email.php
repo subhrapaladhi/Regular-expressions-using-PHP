@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <title>Regular Expression</title>
 </head>
 <body>
 <h1>Program to Check the presence of emails in text file</h1>
 <?php
-    $dataFile = fopen("data.txt","r") or die("unable to open file!");
-    $fileSize = filesize("data.txt");
+    $dataFile = fopen("./TextFile/data.txt","r") or die("unable to open file!");
+    $fileSize = filesize("./TextFile/data.txt");
     $textFileData = fread($dataFile, $fileSize);
-    
-    echo '<p>'.$textFileData.'</p>';
-    
+       
     $words = explode(" ", $textFileData);
 
     $IPregx = "/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/";
